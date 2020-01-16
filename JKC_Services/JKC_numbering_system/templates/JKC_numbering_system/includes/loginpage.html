@@ -1,0 +1,29 @@
+{%block content%}
+<div class="loginpage-bg">
+    <div class="login-form">
+        <form action="{% url 'authenticate' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+    		<div class="avatar">
+                {% load staticfiles %}
+                <img src="{% static 'images/png/003-boy.png' %}" alt="Avatar">
+    		</div>
+            <h2 class="text-center">Sign in using Facebook</h2>
+            <div class="form-group">
+            	<input id="username_id" type="text" class="form-control" name="username" placeholder="Username" required="required">
+            </div>
+    		<div class="form-group">
+                <input id="password_id" type="password" class="form-control" name="password" placeholder="Password" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            </div>
+    		<div class="clearfix">
+                <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                <a href="#" class="pull-right">Forgot Password?</a>
+            </div>
+        </form>
+        <p class="text-center small">Don't have an account? <a href="#">Sign up here!</a></p>
+    </div>
+</div>
+{%endblock%}
